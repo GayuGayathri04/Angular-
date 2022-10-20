@@ -1,0 +1,27 @@
+
+
+<div class="container">
+    <h1>Issue BOard Application</h1>
+  
+    <a href="#" routerLink="/post/create/" class="btn btn-success">Create New Post</a>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td>
+          <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info" style="background-color:#129eaf">View</a>
+          <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-info" style="background-color:#129eaf">Edit</a>
+          <button type="button" (click)="deletePost(post.id)" class="btn btn-danger" style="background-color:red">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
+
